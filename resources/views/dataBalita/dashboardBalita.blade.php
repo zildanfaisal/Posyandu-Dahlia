@@ -10,6 +10,7 @@
         </div>
     </div>
 
+    <a href="{{ route('balitas.exportPDF') }}" class="btn btn-danger mb-3">Export PDF</a> <!-- Button Export PDF -->
     <div class="table-responsive">
         <div class="container mt-4">
             <table class="table align-middle table-bordered table-hover">

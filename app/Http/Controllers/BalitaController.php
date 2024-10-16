@@ -3,10 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Balita;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
+use PDF;
 
 class BalitaController extends Controller
 {
+    public function exportPDF()
+    {
+        $balitas = Balita::all();
+
+        $pdf = FacadePdf::loadView('dataBalita.dashboardBalita', compact('balitas'));
+
+        return $pdf->download('data-balita.pdf');
+    }
+
     public function showHomePage()
     {
         $balitas = Balita::latest()->take(5)->get();

@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/balita/{id}/edit', [BalitaController::class, 'edit'])->name('balita.edit');
     Route::put('/balita/{id}', [BalitaController::class, 'update'])->name('balita.update');
 
+    Route::get('/exportBalita', [BalitaController::class, 'exportPDF'])->name('balitas.exportPDF');
+
     // Data Ibu Hamil Routes
     Route::resource('ibuHamil', IbuHamilController::class);
 
